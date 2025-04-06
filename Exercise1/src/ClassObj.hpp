@@ -1,3 +1,5 @@
+#pragma once
+
 struct ClassObj{
     int a;
 

@@ -16,7 +16,29 @@ bool ImportVectors(const string& inputFilePath,
                    unsigned int*& v1,
                    unsigned int*& v2)
 {
-    return false;
+	ifstream fstr(inputFilePath);
+	if (fstr.fail())
+		return false;
+	
+	std::string tmp;
+	getline(fstr, tmp);
+	
+	fstr >> n;
+	
+	v1 = new unsigned int[n];
+	v2 = new unsigned int[n];
+	
+	getline(fstr, tmp);
+	
+	for (unsigned int i = 0; i < n; i++)
+		fstr >> v1[i];
+	
+	getline(fstr, tmp);
+	
+	for(unsigned int i = 0; i < n; i++)
+		fstr >> v2[i];
+	
+    return true;
 }
 
 
