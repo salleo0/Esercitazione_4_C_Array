@@ -17,3 +17,16 @@ bool ImportData(const string& inputFilePath,
 				double*& returnRate,
 				double*& assetFraction);
 				
+// FinalValueOfPortfolio restituisce il valore finale del capitale dato dal 
+// guadagno su tutti gli asset
+double FinalValueOfPortfolio(const size_t& numAssets,
+							 const double& startingCapital,
+							 const double* const& returnRate,
+							 const double* const& assetFraction);
+							 
+// Export a vector in a string
+// n: size of the vector
+// v: vector
+// return the resulting string
+string ArrayToString(const size_t& n,
+                     const double* const& v);
