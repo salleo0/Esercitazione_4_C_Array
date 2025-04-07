@@ -16,10 +16,10 @@ int main()
 
 	double finalCapital = FinalValueOfPortfolio(numAssets, startingCapital, returnRate, assetFraction);
 	
-	cout << ArrayToString(numAssets, returnRate) << endl << ArrayToString(numAssets, assetFraction) << endl;
+	string outputFile = "results.txt";
 	
-	cout << finalCapital << endl;
-	
+	if(!ExportResults(outputFile, numAssets, startingCapital, returnRate, assetFraction, finalCapital))
+		return 1;
 	
     return 0;
 }

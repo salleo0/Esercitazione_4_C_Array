@@ -4,6 +4,7 @@
 #include "fstream"
 #include "sstream"
 #include "algorithm"
+#include "iomanip"
 
 using namespace std;
 
@@ -68,4 +69,30 @@ string ArrayToString(const size_t& n,
     return toString.str();
 }
 	
+bool ExportResults(const string& outputFilePath,
+				   const size_t& numAssets,
+				   const double& startingCapital,
+				   const double* const& returnRate,
+				   const double* const& assetFraction,
+				   const double& finalCapital)
+{
+	ofstream ofs;
+	ofs.open(outputFilePath);
 	
+	if (ofs.fail())
+	{
+		cerr << "file open failed" << endl;
+		return false;
+	}
+	
+	
+	ofs << fixed << setprecision(2) << "S = " << startingCapital;
+	ofs << defaultfloat << ", n = " << numAssets << endl;
+	ofs << "w = " << ArrayToString(numAssets, assetFraction) << endl;
+	ofs << "r = " << ArrayToString(numAssets, returnRate) << endl;
+	ofs << "Rate of return of portfolio: " << 1.0*(finalCapital - startingCapital)/startingCapital << endl;
+	ofs << "V: " << fixed << setprecision(2) << finalCapital << endl;
+	
+	ofs.close();
+	return true;
+}

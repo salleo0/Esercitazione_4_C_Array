@@ -30,3 +30,11 @@ double FinalValueOfPortfolio(const size_t& numAssets,
 // return the resulting string
 string ArrayToString(const size_t& n,
                      const double* const& v);
+
+// esporta i dati in un file di testo "results.txt"				 
+bool ExportResults(const string& outputFilePath,
+				   const size_t& numAssets,
+				   const double& startingCapital,
+				   const double* const& returnRate,
+				   const double* const& assetFraction,
+				   const double& finalCapital);
