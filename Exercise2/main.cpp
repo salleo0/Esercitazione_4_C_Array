@@ -21,6 +21,8 @@ int main()
 	if(!ExportResults(outputFile, numAssets, startingCapital, returnRate, assetFraction, finalCapital))
 		return 1;
 	
+	delete[] returnRate;
+	delete[] assetFraction
     return 0;
 }
 

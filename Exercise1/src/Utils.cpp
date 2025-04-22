@@ -16,10 +16,15 @@ bool ImportVectors(const string& inputFilePath,
                    unsigned int*& v1,
                    unsigned int*& v2)
 {
+	// Open File
 	ifstream fstr(inputFilePath);
 	if (fstr.fail())
+	{
+		cerr << "file open failed" << endl;
 		return false;
+	}
 	
+	// Get number elements
 	std::string tmp;
 	getline(fstr, tmp);
 	
@@ -38,6 +43,10 @@ bool ImportVectors(const string& inputFilePath,
 	for(unsigned int i = 0; i < n; i++)
 		fstr >> v2[i];
 	
+	
+	// Close File 
+	file.close();
+	
     return true;
 }
 
@@ -46,7 +55,11 @@ unsigned int DotProduct(const size_t& n,
                         const unsigned int* const& v1,
                         const unsigned int* const& v2)
 {
-    return 0;
+	unsigned int dotProduct = 0;
+	for (unsigned int i = 0; i < n; i++)
+		dotProduct += v1[i] * v2[i];
+	
+    return dotProduct;
 }
 
 
