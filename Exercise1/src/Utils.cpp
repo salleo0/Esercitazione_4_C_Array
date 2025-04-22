@@ -26,26 +26,55 @@ bool ImportVectors(const string& inputFilePath,
 	
 	// Get number elements
 	std::string tmp;
-	getline(fstr, tmp);
 	
-	fstr >> n;
+	while (!fstr.eof())
+    {
+        getline(fstr, tmp);
+
+        // Skip Comment Line
+        if(tmp[0] != '#')
+            break;
+    }
 	
+	stringstream convertN(tmp);
+	convertN >> n;
+	
+	// Get first vector
 	v1 = new unsigned int[n];
-	v2 = new unsigned int[n];
 	
-	getline(fstr, tmp);
+	while (!fstr.eof())
+    {
+        getline(fstr, tmp);
+
+        // Skip Comment Line
+        if(tmp[0] != '#')
+            break;
+    }
+
+	stringstream convertV1(tmp);
 	
 	for (unsigned int i = 0; i < n; i++)
-		fstr >> v1[i];
+		convertV1 >> v1[i];
 	
-	getline(fstr, tmp);
+	// Get second vector
+	v2 = new unsigned int[n];
+	
+	while (!fstr.eof())
+    {
+        getline(fstr, tmp);
+
+        // Skip Comment Line
+        if(tmp[0] != '#')
+            break;
+    }
+	
+	stringstream convertV2(tmp);
 	
 	for(unsigned int i = 0; i < n; i++)
-		fstr >> v2[i];
-	
+		convertV2 >> v2[i];
 	
 	// Close File 
-	file.close();
+	fstr.close();
 	
     return true;
 }

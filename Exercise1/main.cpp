@@ -19,7 +19,7 @@ int main()
 		return -1;
 	}
 	else 
-		cout << "Import successful: n= " n << " v1= " << ArrayToString(n, ptr1) << " v2= " << ArrayToString(n, ptr2) << endl;
+		cout << "Import successful: n= " << n << " v1= " << ArrayToString(n, ptr1) << " v2= " << ArrayToString(n, ptr2) << endl;
 	
 	unsigned int d = DotProduct(n, ptr1, ptr2);
 	cout << "dot product: " << d << endl;
