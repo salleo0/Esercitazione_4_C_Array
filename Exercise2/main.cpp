@@ -22,7 +22,8 @@ int main()
 		return 1;
 	
 	delete[] returnRate;
-	delete[] assetFraction
+	delete[] assetFraction;
+	
     return 0;
 }
 
